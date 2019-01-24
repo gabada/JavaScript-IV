@@ -120,7 +120,6 @@ fred.assess(jason);
 jason.listsSubjects();
 jason.PRAssignment('CSS');
 jason.sprintChallenge('JavaScript');
-jason.graduate(steve);
 
 
 steve.standup('web17_pm-steve');
