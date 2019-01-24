@@ -26,6 +26,17 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+
+    assess(student) {
+        let min = Math.ceil(25);
+        let max = Math.floor(0);
+        let projectGrade = Math.floor(Math.random() * (max - min + 1 )) + min;
+        student.grade += projectGrade;
+        if (student.grade >= 100) {
+            student.grade = 100;
+        }
+        console.log(`${student.grade}`);
+    }
 }
 
 class Student extends Person {
@@ -85,7 +96,7 @@ const jason = new Student({
     favSubjects: ['HTML', 'CSS', 'LESS'],
     className: 'WEB17',
     previousBackground: `Serial Killer`,
-    grade: 85
+    grade: 60
 });
 
 const steve = new ProjectManager({
@@ -100,6 +111,7 @@ const steve = new ProjectManager({
 
 fred.demo('JavaScript-IV');
 fred.grade(jason,'HTML');
+fred.assess(jason);
 
 jason.listsSubjects();
 jason.PRAssignment('CSS');
@@ -107,3 +119,4 @@ jason.sprintChallenge('JavaScript');
 
 steve.standup('web17_pm-steve');
 steve.debugsCode(jason, 'LESS');
+steve.assess(jason);
