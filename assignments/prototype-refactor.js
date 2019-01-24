@@ -91,32 +91,29 @@ class Villain extends Humanoid {
     }
 }
 
-function Hero(heroAttrs) {
-    Humanoid.call(this, heroAttrs);
+class Hero extends Humanoid {
+    constructor(heroAttrs) {
+        super(heroAttrs);
+    }
+    glide() {
+        return `${this.name} glided to safety.`;
+    }
+    batmobile() {
+        return `${this.name} just summoned the Bat Mobile.`;
+    }
+
+    punch() {
+        return `KAPOW ${this.name} just threw a punch! ${joker.destroy()}`;
+    }
+
+    kick() {
+        return `BAM ${this.name} just landed a kick! ${joker.destroy()}`;
+    }
+
+    cringe() {
+        return `GLIPP ${this.name} cringed.`;
+    }
 }
-
-Hero.prototype = Object.create(Humanoid.prototype);
-
-Hero.prototype.glide = function () {
-    return `${this.name} glided to safety.`
-}
-
-Hero.prototype.batmobile = function () {
-    return `${this.name} just summoned the Bat Mobile.`
-}
-
-Hero.prototype.punch = function () {
-    return `KAPOW ${this.name} just threw a punch! ${joker.destroy()}`
-}
-
-Hero.prototype.kick = function () {
-    return `BAM ${this.name} just landed a kick! ${joker.destroy()}`
-}
-
-Hero.prototype.cringe = function () {
-    return `GLIPP ${this.name} cringed.`
-}
-
 
 /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
