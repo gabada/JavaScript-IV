@@ -34,6 +34,7 @@ class Student extends Person {
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach((subject) => {
@@ -83,7 +84,8 @@ const jason = new Student({
     gender: 'male',
     favSubjects: ['HTML', 'CSS', 'LESS'],
     className: 'WEB17',
-    previousBackground: `Serial Killer`
+    previousBackground: `Serial Killer`,
+    grade: 85
 });
 
 const steve = new ProjectManager({
