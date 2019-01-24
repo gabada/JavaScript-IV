@@ -28,14 +28,13 @@ class Instructor extends Person {
     }
 
     assess(student) {
+        while (student.grade < 70) {
         let min = Math.ceil(25);
         let max = Math.floor(0);
         let projectGrade = Math.floor(Math.random() * (max - min + 1 )) + min;
         student.grade += projectGrade;
-        if (student.grade >= 100) {
-            student.grade = 100;
         }
-        console.log(`${student.grade}`);
+        student.graduate();
     }
 }
 
@@ -61,6 +60,11 @@ class Student extends Person {
         console.log(`${this.name} has begun spring challenge on ${subject}`);
     }
 
+    graduate(grader, student) {
+        if (this.grade > 70) {
+            console.log(`CONGRATS!! ${this.name} you graduate with a score of ${this.grade}. Go get a job!`);
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -96,7 +100,7 @@ const jason = new Student({
     favSubjects: ['HTML', 'CSS', 'LESS'],
     className: 'WEB17',
     previousBackground: `Serial Killer`,
-    grade: 60
+    grade: 20
 });
 
 const steve = new ProjectManager({
@@ -116,6 +120,8 @@ fred.assess(jason);
 jason.listsSubjects();
 jason.PRAssignment('CSS');
 jason.sprintChallenge('JavaScript');
+jason.graduate(steve);
+
 
 steve.standup('web17_pm-steve');
 steve.debugsCode(jason, 'LESS');
