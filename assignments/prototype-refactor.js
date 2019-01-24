@@ -15,14 +15,14 @@ Each constructor function has unique properties and methods that are defined in 
 * destroy() // prototype method -> returns the string: 'Object was removed from the game.'
 */
 
-function GameObject(goattrs) {
-    this.createdAt = Date();
-    // attrs.dimensions will bring in the entire dimension object.
-    this.dimensions = goattrs.dimensions;
-}
-
-GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game.`
+class GameObject {
+    constructor(goattrs) {
+        this.createdAt = Date();
+        this.dimensions = goattrs.dimensions;
+    }
+    destroy() {
+        return `${this.name} was removed from the game.`
+    }
 }
 
 /*
