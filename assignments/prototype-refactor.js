@@ -54,17 +54,17 @@ class CharacterStats {
     * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(hAttrs) {
-    this.team = hAttrs.team;
-    this.weapons = hAttrs.weapons;
-    this.language = hAttrs.language;
-    CharacterStats.call(this, hAttrs);
-}
+class Humanoid {
+    constructor(hAttrs) {
+        super(hAttrs);
+        this.team = hAttrs.team;
+        this.weapons = hAttrs.weapons;
+        this.language = hAttrs.language;
+    }
 
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}`;
+    }
 }
 
 // * Give the Hero and Villains different methods that could be used to remove health points from
