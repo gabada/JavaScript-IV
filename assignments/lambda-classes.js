@@ -36,17 +36,17 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects;
     }
     listsSubjects() {
-        $this.favSubjects.forEach((subject) => {
+        this.favSubjects.forEach((subject) => {
             console.log(subject);
         });
     }
 
     PRAssignment(subject) {
-        console.log(`${this.student.name} has submitted a PR for {subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
 
     sprintChallenge(subject) {
-        console.log(`${this.student.name} has begun spring challenge on {subject}`);
+        console.log(`${this.name} has begun spring challenge on ${subject}`);
     }
 
 }
@@ -58,10 +58,50 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttrs.favInstructor;
     }
     standup(channel) {
-        console.log(`${this.name} announces to {channel}`);
+        console.log(`${this.name} announces to ${channel} standy times!`);
     }
 
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs {student.name}'s code on {subject}`);
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Elm Street',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+});
+
+const jason = new Student({
+    name: 'Jason',
+    location: 'Bedrock',
+    age: 39,
+    gender: 'male',
+    favSubjects: ['HTML', 'CSS', 'LESS'],
+    className: 'WEB17',
+    previousBackground: `Serial Killer`
+});
+
+const steve = new ProjectManager({
+    name: 'Steve',
+    location: 'Florida',
+    age: 42,
+    gender: 'male',
+    favLanguage: 'CSS',
+    gradClassName: 'WEB15',
+    favInstructor: `Josh Knell`
+});
+
+fred.demo('JavaScript-IV');
+fred.grade(jason,'HTML');
+
+jason.listsSubjects();
+jason.PRAssignment('CSS');
+jason.sprintChallenge('JavaScript');
+
+steve.standup('web17_pm-steve');
+steve.debugsCode(jason, 'LESS');
