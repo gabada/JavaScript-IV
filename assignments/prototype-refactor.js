@@ -33,7 +33,7 @@ class GameObject {
     * should inherit destroy() from GameObject's prototype
 */
 
-class CharacterStats {
+class CharacterStats extends GameObject {
     constructor(csAttrs) {
         super(csAttrs);
         this.healthPoints = csAttrs.healthPoints;
@@ -54,7 +54,7 @@ class CharacterStats {
     * should inherit takeDamage() from CharacterStats
 */
 
-class Humanoid {
+class Humanoid  extends CharacterStats {
     constructor(hAttrs) {
         super(hAttrs);
         this.team = hAttrs.team;
@@ -69,26 +69,26 @@ class Humanoid {
 
 // * Give the Hero and Villains different methods that could be used to remove health points from
 // objects which could result in destruction if health gets to 0 or drops below 0;
-function Villain(vAttrs) {
-    Humanoid.call(this, vAttrs);
-}
 
-Villain.prototype = Object.create(Humanoid.prototype);
+class Villain extends Humanoid {
+    constructor(vAttrs) {
+        super(vAttrs);
+    }
+    bomb() {
+        return `${this.name} just threw a bomb. ${batman.glide()}`;
+    }
 
-Villain.prototype.bomb = function () {
-    return `${this.name} just threw a bomb. ${batman.glide()}`
-}
+    laugh() {
+        return `${this.name} just laughed evilly. ${batman.cringe()}`;
+    }
 
-Villain.prototype.laugh = function () {
-    return `${this.name} just laughed evilly. ${batman.cringe()}`
-}
+    threat() {
+        return `${this.name} just called in a threat!`;
+    }
 
-Villain.prototype.threat = function () {
-    return `${this.name} just called in a threat!`
-}
-
-Villain.prototype.shoot = function () {
-    return `AIEEE! ${this.name} just shot their gun! ${batman.batmobile()}`
+    shoot() {
+        return `AIEEE! ${this.name} just shot their gun! ${batman.batmobile()}`;
+    }
 }
 
 function Hero(heroAttrs) {
