@@ -35,7 +35,7 @@ class Instructor extends Person {
         student.grade += projectGrade;
         }
         return student.graduate();
-        
+
     }
 }
 
