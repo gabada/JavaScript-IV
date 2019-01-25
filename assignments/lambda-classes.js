@@ -8,7 +8,7 @@ class Person {
     }
 
     speak() {
-        console.log(`Hello my name is ${this.name}, I am from ${this.location}`);
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
     }
 }
 
@@ -20,11 +20,11 @@ class Instructor extends Person {
         this.catchPhrase = insAttrs.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}`);
+        return `Today we are learning about ${subject}`;
     }
 
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`);
+        return `${student.name} receives a perfect score on ${subject}`;
     }
 
     assess(student) {
@@ -48,21 +48,21 @@ class Student extends Person {
     }
     listsSubjects() {
         this.favSubjects.forEach((subject) => {
-            console.log(subject);
+            return subject;
         });
     }
 
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        return `${this.name} has submitted a PR for ${subject}`;
     }
 
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun spring challenge on ${subject}`);
+        return `${this.name} has begun spring challenge on ${subject}`;
     }
 
     graduate(grader, student) {
         if (this.grade > 70) {
-            console.log(`CONGRATS!! ${this.name} you graduate with a score of ${this.grade}. Go get a job!`);
+            return `CONGRATS!! ${this.name} you graduate with a score of ${this.grade}. Go get a job!`;
         }
     }
 }
@@ -74,11 +74,11 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttrs.favInstructor;
     }
     standup(channel) {
-        console.log(`${this.name} announces to ${channel} standy times!`);
+        return `${this.name} announces to ${channel} standy times!`;
     }
 
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
@@ -113,15 +113,17 @@ const steve = new ProjectManager({
     favInstructor: `Josh Knell`
 });
 
-fred.demo('JavaScript-IV');
-fred.grade(jason,'HTML');
-fred.assess(jason);
+console.log(fred.demo('JavaScript-IV'));
+console.log(fred.grade(jason,'HTML'));
+console.log(fred.assess(jason));
 
-jason.listsSubjects();
-jason.PRAssignment('CSS');
-jason.sprintChallenge('JavaScript');
+console.log(jason.listsSubjects());
+console.log(jason.PRAssignment('CSS'));
+console.log(jason.sprintChallenge('JavaScript'));
 
 
-steve.standup('web17_pm-steve');
-steve.debugsCode(jason, 'LESS');
-steve.assess(jason);
+console.log(steve.standup('web17_pm-steve'));
+console.log(steve.debugsCode(jason, 'LESS'));
+console.log(steve.assess(jason));
+
+console.log(steve.standup());
