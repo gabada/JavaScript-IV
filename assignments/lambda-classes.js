@@ -34,7 +34,8 @@ class Instructor extends Person {
         let projectGrade = Math.floor(Math.random() * (max - min + 1 )) + min;
         student.grade += projectGrade;
         }
-        student.graduate();
+        return student.graduate();
+        
     }
 }
 
@@ -47,9 +48,12 @@ class Student extends Person {
         this.grade = studentAttrs.grade;
     }
     listsSubjects() {
+        let returnStr = "";
         this.favSubjects.forEach((subject) => {
-            return subject;
+            returnStr += subject  + '\n';
         });
+        return returnStr;
+
     }
 
     PRAssignment(subject) {
@@ -125,5 +129,3 @@ console.log(jason.sprintChallenge('JavaScript'));
 console.log(steve.standup('web17_pm-steve'));
 console.log(steve.debugsCode(jason, 'LESS'));
 console.log(steve.assess(jason));
-
-console.log(steve.standup());
